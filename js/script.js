@@ -27,7 +27,7 @@ function bucle_de_operaciones(){
         }else if(opcion == 2){
             num1 = Number(prompt("ingrese el primer numero"))
             num2 = Number(prompt("ingrese el segundo numero"))
-            divisor = div(num1, num2)
+            divisor = dividir(num1, num2)
             console.log("el resultado de la divicion es: ",divisor)
             break;
         }
