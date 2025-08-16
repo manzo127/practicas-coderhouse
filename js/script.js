@@ -50,10 +50,30 @@ function carga_alumnos(alumno,list_nota){
     }
 }
 
-function mejor_estudiante(list_nota){
-    let prom, cont = 0
-    prom = parseInt(prom_notas(list_nota))
-    if (prom == 7) {
-        cont++
+function mejor_estudiante(alumno, list_nota){
+    let prom, guardador = 0
+    prom = prom_notas(alumno.nota)
+    if(prom >= 7){
+        guardador = alumno.nombre
     }
+    return guardador
+}
+
+function agregar_estudiante(alumno){
+    let name, edades, notas
+    name = prompt("Ingrese un nombre\n")
+    while (name === "") {
+        name = prompt("ERROR, ingrese un nombre de forma correcta\n")
+    }
+    edades = parseInt(prompt("ingrese la edad"))
+        while(edades < 0 && edades < 12){
+            edades = parseInt(prompt("ERROR, ingrese la edad adecuadamente"))
+        }
+        carga_notas(list_nota)
+        
+        alumno.push({
+            nombre: name,
+            edad: edades,
+            nota: list_nota
+        })
 }
