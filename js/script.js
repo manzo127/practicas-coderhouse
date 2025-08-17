@@ -24,12 +24,12 @@ function prom_notas(list_nota){
     return prom;
 }
 function carga_alumnos(alumno,list_nota){
-    let name, edades, notas
+    let name, edades
     name = prompt("Ingrese un nombre\n")
     while (name === "") {
         name = prompt("ERROR, ingrese un nombre de forma correcta\n")
     }
-    while (name == "listo"){
+    while (name != "listo"){
         edades = parseInt(prompt("ingrese la edad"))
         while(edades < 0 && edades < 12){
             edades = parseInt(prompt("ERROR, ingrese la edad adecuadamente"))
@@ -59,15 +59,15 @@ function mejor_estudiante(alumno, list_nota){
     return guardador
 }
 
-function agregar_estudiante(alumno){
-    let name, edades, notas
+function agregar_estudiante(alumno, list_nota){
+    let name, edades
     name = prompt("Ingrese un nombre\n")
     while (name === "") {
         name = prompt("ERROR, ingrese un nombre de forma correcta\n")
     }
-    edades = parseInt(prompt("ingrese la edad"))
+    edades = parseInt(prompt("ingrese la edad\n"))
         while(edades < 0 && edades < 12){
-            edades = parseInt(prompt("ERROR, ingrese la edad adecuadamente"))
+            edades = parseInt(prompt("ERROR, ingrese la edad adecuadamente\n"))
         }
         carga_notas(list_nota)
         
@@ -76,4 +76,25 @@ function agregar_estudiante(alumno){
             edad: edades,
             nota: list_nota
         })
+}
+
+
+let opcion, nombre
+const alumno = [{}], nota = []
+carga_alumnos(alumno, nota)
+
+
+if (alumno.length) {
+    for (let i = 0; i < alumno.length; i++) {
+        console.log(alumno[i])
+        
+    }
+    
+    // opcion = prompt("desea ingresar otro alumno?\n") AGREGAR MAXIMOS Y MINIMOS EN EL MEJOOR PROMEDIO
+    // if (opcion == "si") {
+    //     agregar_estudiante(alumno)
+    // }
+    // nombre = mejor_estudiante()
+}else{
+    console.log("no se a ingresado ningun alumno\n")
 }
